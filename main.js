@@ -2,6 +2,17 @@ let todoItemsContainerEl = document.getElementById("todoItemsContainer");
 let addBtnEl = document.getElementById("addButton");
 let saveBtnEl = document.getElementById("saveButton");
 
+let userInputEl = document.getElementById("userInput");
+userInputEl.select();
+userInputEl.addEventListener("keydown", onKeyPressed);
+
+function onKeyPressed(event) {
+    if (event.key === "Enter") {
+        onAddTodo();
+    }
+}
+
+
 function getTodoListFromLocalStorage() {
     let stringifiedList = localStorage.getItem("todoList");
     let parsedTodoList = JSON.parse(stringifiedList);
